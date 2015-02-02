@@ -19545,21 +19545,20 @@ Actions = Reflux.createActions([
 
 module.exports = Actions;
 },{"reflux":149}],169:[function(require,module,exports){
-/** @jsx React.DOM */
-
 'use strict';
 
-var React = require('react'),
-    StatusStore = require('./stores/status-store'),
-    StatusAction = require('./actions/status-action'),
-    Reflux = require('reflux'),
+var React           = require('react'),
+    StatusStore     = require('./stores/status-store'),
+    StatusAction    = require('./actions/status-action'),
+    Reflux          = require('reflux'),
     ExampleApp;
 
 ExampleApp = React.createClass({displayName: "ExampleApp",
 
     mixins: [
         Reflux.ListenerMixin,
-        Reflux.connect(StatusStore, "Status")],
+        Reflux.connect(StatusStore, "Status")
+    ],
     getInitialState: function() {
         return {
             Status:''
@@ -19582,7 +19581,6 @@ ExampleApp = React.createClass({displayName: "ExampleApp",
     },
     render: function() {
         return (
-        	/*jshint ignore:start */
             React.createElement("div", {className: "container"}, 
             	React.createElement("h2", null, "Hello, World"), 
                 React.createElement("div", {className: "btn-group"}, 
@@ -19592,23 +19590,20 @@ ExampleApp = React.createClass({displayName: "ExampleApp",
                 ), 
                 React.createElement("p", null, "Current Status: ", this.state.Status)
             )
-            /*jshint ignore:end */
         );
     }
 });
 
 React.render(
-    /*jshint ignore:start */
     React.createElement(ExampleApp, null),
-    /*jshint ignore:end */
     document.getElementById('app')
 );
 
 },{"./actions/status-action":168,"./stores/status-store":170,"react":"nakDgH","reflux":149}],170:[function(require,module,exports){
-var Reflux = require('reflux'),
-    StatusAction = require('../actions/status-action');
+var Reflux          = require('reflux'),
+    StatusAction    = require('../actions/status-action');
 
-var ProfileStore = Reflux.createStore({
+var StatusStore = Reflux.createStore({
 
     init: function() {
         this.listenTo(StatusAction.getStatus, this._getStatus);
@@ -19622,5 +19617,5 @@ var ProfileStore = Reflux.createStore({
 
 });
 
-module.exports = ProfileStore;
+module.exports = StatusStore;
 },{"../actions/status-action":168,"reflux":149}]},{},[169])

@@ -1,18 +1,17 @@
-/** @jsx React.DOM */
-
 'use strict';
 
-var React = require('react'),
-    StatusStore = require('./stores/status-store'),
-    StatusAction = require('./actions/status-action'),
-    Reflux = require('reflux'),
+var React           = require('react'),
+    StatusStore     = require('./stores/status-store'),
+    StatusAction    = require('./actions/status-action'),
+    Reflux          = require('reflux'),
     ExampleApp;
 
 ExampleApp = React.createClass({
 
     mixins: [
         Reflux.ListenerMixin,
-        Reflux.connect(StatusStore, "Status")],
+        Reflux.connect(StatusStore, "Status")
+    ],
     getInitialState: function() {
         return {
             Status:''
@@ -35,7 +34,6 @@ ExampleApp = React.createClass({
     },
     render: function() {
         return (
-        	/*jshint ignore:start */
             <div className="container">
             	<h2>Hello, World</h2>
                 <div className="btn-group">
@@ -45,14 +43,11 @@ ExampleApp = React.createClass({
                 </div>
                 <p>Current Status: {this.state.Status}</p>
             </div>
-            /*jshint ignore:end */
         );
     }
 });
 
 React.render(
-    /*jshint ignore:start */
     <ExampleApp />,
-    /*jshint ignore:end */
     document.getElementById('app')
 );

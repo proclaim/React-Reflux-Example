@@ -1,7 +1,7 @@
-var Reflux = require('reflux'),
-    StatusAction = require('../actions/status-action');
+var Reflux          = require('reflux'),
+    StatusAction    = require('../actions/status-action');
 
-var ProfileStore = Reflux.createStore({
+var StatusStore = Reflux.createStore({
 
     init: function() {
         this.listenTo(StatusAction.getStatus, this._getStatus);
@@ -15,4 +15,4 @@ var ProfileStore = Reflux.createStore({
 
 });
 
-module.exports = ProfileStore;
+module.exports = StatusStore;
